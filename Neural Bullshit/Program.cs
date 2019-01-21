@@ -20,10 +20,12 @@ namespace NeuralNetwork
         // sorts of fun new data analysis now.
         static void Main(string[] args)
         {
-            //Create a new 3-10-1 NN
+            // Create a new 3-10-1 NN
             var network = new Structure.NeuralNetwork(new [] { 3, 10, 1 });
 
-            //Init. training data and labels
+            // Init. training data and labels
+            // Note: BinaryLow/High are premade values corresponding to 0.1d and 0.9d respectively,
+            // to avoid nasty sigmoid gradient problems.
             var trainingData = new[]
             {
                 new [] { BinaryLow, BinaryLow, BinaryLow },
@@ -48,14 +50,14 @@ namespace NeuralNetwork
                 new [] { 0d }
             };
 
-            //TrainConfig is a class used to store important training hyperparameters
+            // TrainConfig is a class used to store important training hyperparameters
             var myTrainConfig = new TrainConfig();
             myTrainConfig.Epochs = 5000;
 
-            //Train the network using the config, network and data above
+            // Train the network using the config, network and data above
             Tasks.Train(network, trainingData, labels, myTrainConfig);
             
-            //Without further training, feed each data sample through the network and output to console
+            // Without further training, feed each data sample through the network and output to console
             foreach (var data in trainingData)
             {
                 network.InputLayer.FeedForward(data);
@@ -65,7 +67,7 @@ namespace NeuralNetwork
                 Console.WriteLine(output);
             }
 
-            //Use the prebuilt regression accuracy task to get an avg error.
+            // Use the prebuilt regression accuracy task to get an avg error.
             Console.WriteLine("Avg error: " + Tasks.TestRegressionAccuracy(network, trainingData, labels));
             Console.ReadKey();
         }
