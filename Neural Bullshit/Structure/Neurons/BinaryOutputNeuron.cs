@@ -11,7 +11,7 @@ namespace NeuralNetwork.Structure.Neurons
         public readonly string Name;
         public BinaryOutputNeuron() : base()
         {
-            Name = "Bias";
+            Name = "Binary";
             ActivationFunction = new Functions.ActivationFunctions.Binary();
         }
     }
