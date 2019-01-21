@@ -40,14 +40,14 @@ namespace NeuralNetwork
 
             var labels = new[]
             {
-                new [] { 0d },
-                new [] { 1d },
-                new [] { 1d },
-                new [] { 0d },
-                new [] { 0d },
-                new [] { 1d },
-                new [] { 1d },
-                new [] { 0d }
+                new [] { BinaryLow },
+                new [] { BinaryHigh },
+                new [] { BinaryHigh },
+                new [] { BinaryLow },
+                new [] { BinaryLow },
+                new [] { BinaryHigh },
+                new [] { BinaryHigh },
+                new [] { BinaryLow }
             };
 
             // TrainConfig is a class used to store important training hyperparameters
